@@ -2,16 +2,12 @@
 
 > Generate the source for `@types/carbon__icons-react`
 
-## Available Scripts
+## Runbook
 
-### `yarn test`
-
-Uses `vitest` as a test runner to execute the source code.
+1. Upgrade `@carbon/icons`.
+2. Run `yarn test run`.
+3. Move files in `dist/` to DefinitelyTyped.
 
 ## License
 
 [MIT](LICENSE)
-
-```
-
-```
