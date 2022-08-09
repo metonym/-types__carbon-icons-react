@@ -4,7 +4,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@carbon/icons": "11.6.0"
+    "@carbon/icons": "11.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
