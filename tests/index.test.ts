@@ -11,7 +11,7 @@ test("genCarbonIconsReactTypes", () => {
         32,
         "glyph",
       ],
-      "total": 1949,
+      "total": 2008,
     }
   `);
 });

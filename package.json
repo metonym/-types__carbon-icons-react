@@ -4,7 +4,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@carbon/icons": "11.8.0-rc.0"
+    "@carbon/icons": "11.8.0"
   },
   "devDependencies": {
     "typescript": "^4.8.3",
