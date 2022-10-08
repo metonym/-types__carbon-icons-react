@@ -4,10 +4,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@carbon/icons": "11.8.0"
+    "@carbon/icons": "11.9.0"
   },
   "devDependencies": {
     "typescript": "^4.8.4",
-    "vitest": "^0.23.4"
+    "vitest": "^0.24.0"
   }
 }
