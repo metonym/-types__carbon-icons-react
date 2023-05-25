@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@carbon/icons@11.18.0":
-  version "11.18.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-11.18.0.tgz#65071af3c974cd6a08313cbab0e5a7e070a613c2"
-  integrity sha512-gUBosv6nvx+KJDEgtjrs4tNT6iJAD+bQDozzWNiqprwZ+WZgVlHq0yoVuaeU4yGwvBPJ6+Vrh9RVAYtTlhPF2g==
+"@carbon/icons@11.20.0":
+  version "11.20.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-11.20.0.tgz#a56d4db9213bd9c3c80375ff2a73ab76f33c7446"
+  integrity sha512-qgUy7wzyZAptSEb3SvNL+q9JTQkYnQqkbmo+fzCl/s4d4Os6RqyxCeFZ5xpHaU5trTHGRBQhG0ndGijfH03LkA==
 
 "@esbuild/android-arm64@0.16.12":
   version "0.16.12"
