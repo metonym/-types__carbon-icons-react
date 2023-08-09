@@ -1,9 +1,9 @@
+import type { BuildIcons } from "@carbon/icons";
+import metadata from "@carbon/icons/metadata.json";
 import fs from "fs";
 import path from "path";
-import metadata from "@carbon/icons/metadata.json";
-import type { BuildIcons } from "@carbon/icons";
 import packageJson from "../package.json";
-import { ensureFolder } from "./utils";
+import { ensureFolder, getVersion } from "./utils";
 
 interface GenCarbonIconsReactTypesOptions {
   /** @default Infinity */
@@ -13,8 +13,8 @@ interface GenCarbonIconsReactTypesOptions {
 export const genCarbonIconsReactTypes = (
   options?: GenCarbonIconsReactTypesOptions
 ) => {
-  const limit = options?.limit || Infinity;
-  const unique_sizes = new Set();
+  const limit = options?.limit ?? Infinity;
+  const unique_sizes = new Set<string | number>();
   const FOLDERS = ["es", "lib"];
 
   ensureFolder("dist");
@@ -60,11 +60,8 @@ export const genCarbonIconsReactTypes = (
       });
     });
 
-  const preamble = `// Type definitions for @carbon/icons-react ${packageJson.dependencies[
-    "@carbon/icons"
-  ]
-    .slice(0, -2)
-    .replace(/\^/, "")}
+  const version = getVersion(packageJson.devDependencies["@carbon/icons"]);
+  const preamble = `// Type definitions for @carbon/icons-react ${version}
 // Project: https://github.com/carbon-design-system/carbon/tree/master/packages/icons-react
 // Definitions by: Eric Liu <https://github.com/metonym>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
