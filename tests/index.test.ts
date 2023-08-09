@@ -1,5 +1,5 @@
-import { test, expect } from "vitest";
-import { genCarbonIconsReactTypes } from "../src/carbon-icons-react";
+import { expect, test } from "vitest";
+import { genCarbonIconsReactTypes } from "../src";
 
 test("genCarbonIconsReactTypes", () => {
   expect(genCarbonIconsReactTypes()).toMatchInlineSnapshot(`
