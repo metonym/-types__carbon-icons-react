@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@carbon/icons@11.24.0":
-  version "11.24.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-11.24.0.tgz#288975296a9363fb9a1160a1fdf2f3899b6b02f9"
-  integrity sha512-l+x1I5NtcxPNYcaA1vi2D7IS3AqDHqcvp0aJFtAbSPbK6G/S/2pom9zh1bPDrLqxQOZAeRFE1j1LtMggaC16Zg==
+"@carbon/icons@11.25.0":
+  version "11.25.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-11.25.0.tgz#9cbc5e0075790d910842f61514e16510fb76e6c1"
+  integrity sha512-Pdd/6lY7v/c0dk3HVr+XteAc0PyumIA7WrdcSipaICivxuSiD2Wxzo8dO1aoB4OAqNOzLnODODAiDHr5xqCGkg==
 
 "@dprint/darwin-arm64@0.40.2":
   version "0.40.2"
