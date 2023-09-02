@@ -5,10 +5,10 @@
     "postbuild": "dprint fmt dist/**/*.d.ts --excludes src/**"
   },
   "devDependencies": {
-    "@carbon/icons": "11.25.0",
-    "@types/react": "^18.2.20",
+    "@carbon/icons": "11.26.0",
+    "@types/react": "^18.2.21",
     "dprint": "^0.40.2",
-    "typescript": "^5.1.6",
-    "vitest": "^0.34.1"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.3"
   }
 }
