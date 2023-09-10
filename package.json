@@ -1,14 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "build": "vitest run",
-    "postbuild": "dprint fmt dist/**/*.d.ts --excludes src/**"
+    "build": "bun test",
+    "format": "dprint fmt dist/**/*.d.ts --excludes src/**"
   },
   "devDependencies": {
     "@carbon/icons": "11.26.0",
     "@types/react": "^18.2.21",
-    "dprint": "^0.40.2",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.3"
+    "bun-types": "^1.0.1",
+    "dprint": "^0.40.2"
   }
 }

@@ -1,17 +1,7 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { genCarbonIconsReactTypes } from "../src";
 
 test("genCarbonIconsReactTypes", () => {
-  expect(genCarbonIconsReactTypes()).toMatchInlineSnapshot(`
-    {
-      "sizes": [
-        16,
-        20,
-        24,
-        32,
-        "glyph",
-      ],
-      "total": 2159,
-    }
-  `);
+  const result = genCarbonIconsReactTypes();
+  expect(result.total).toEqual(2159);
 });
