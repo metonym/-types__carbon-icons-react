@@ -5,7 +5,7 @@
 ## Runbook
 
 1. Upgrade `@carbon/icons`.
-2. Run `bun run build`.
+2. Run `bun generate-types`.
 3. Copy files from `dist/` to DefinitelyTyped.
 
 ## License
