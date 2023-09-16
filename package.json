@@ -5,9 +5,9 @@
     "format": "dprint fmt dist/**/*.d.ts --excludes src/**"
   },
   "devDependencies": {
-    "@carbon/icons": "11.26.0",
+    "@carbon/icons": "11.27.0",
     "@types/react": "^18.2.21",
-    "bun-types": "^1.0.1",
-    "dprint": "^0.40.2"
+    "bun-types": "^1.0.2",
+    "dprint": "^0.41.0"
   }
 }
