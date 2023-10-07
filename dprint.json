@@ -1,11 +1,9 @@
 {
   "incremental": false,
   "typescript": {
-    "arrowFunction.useParentheses": "preferNone",
     "indentWidth": 4,
-    "lineWidth": 120,
-    "quoteStyle": "alwaysSingle"
+    "lineWidth": 120
   },
-  "excludes": ["**/node_modules"],
-  "plugins": ["https://plugins.dprint.dev/typescript-0.86.1.wasm"]
+  "excludes": ["**/node_modules", "src/**"],
+  "plugins": ["https://plugins.dprint.dev/typescript-0.88.1.wasm"]
 }

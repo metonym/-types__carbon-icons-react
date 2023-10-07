@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "generate-types": "bun test",
-    "format": "dprint fmt dist/**/*.d.ts --excludes src/**"
+    "postgenerate-types": "dprint fmt dist/*.d.ts"
   },
   "devDependencies": {
     "@carbon/icons": "11.28.0",
