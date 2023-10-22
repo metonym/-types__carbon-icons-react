@@ -1,9 +1,8 @@
 import type { BuildIcons } from "@carbon/icons";
 import metadata from "@carbon/icons/metadata.json";
-import fs from "fs";
-import path from "path";
-import packageJson from "../package.json";
-import { ensureFolder, getVersion } from "./utils";
+import fs from "node:fs";
+import path from "node:path";
+import { ensureFolder } from "./utils";
 
 interface GenCarbonIconsReactTypesOptions {
   /** @default Infinity */
@@ -60,14 +59,7 @@ export const genCarbonIconsReactTypes = (
       });
     });
 
-  const version = getVersion(packageJson.devDependencies["@carbon/icons"]);
-  const preamble = `// Type definitions for @carbon/icons-react ${version}
-// Project: https://github.com/carbon-design-system/carbon/tree/master/packages/icons-react
-// Definitions by: Eric Liu <https://github.com/metonym>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 4.0
-
-/** ${data.length} icons total */
+  const preamble = `/** ${data.length} icons total */
 
 export interface CarbonIconProps
   extends Omit<
