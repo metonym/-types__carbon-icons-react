@@ -2,26 +2,36 @@ import type { BuildIcons } from "@carbon/icons";
 import metadata from "@carbon/icons/metadata.json";
 import fs from "node:fs";
 import path from "node:path";
+import { BASE_INDEX_FILE, FOLDERS } from "./constants";
 import { ensureFolder } from "./utils";
 
-interface GenCarbonIconsReactTypesOptions {
-  /** @default Infinity */
+interface Options {
+  /**
+   * Specify a max number of icons to generate.
+   * Useful for testing without generating all icons (2k+).
+   * @default Infinity
+   */
   limit?: number;
+
+  /**
+   * Specify a custom output directory.
+   * @default "dist"
+   */
+  outputDir?: string;
 }
 
-export const genCarbonIconsReactTypes = (
-  options?: GenCarbonIconsReactTypesOptions
-) => {
+export const genCarbonIconsReactTypes = (options?: Options) => {
   const limit = options?.limit ?? Infinity;
+  const output_dir = options?.outputDir ?? "dist";
   const unique_sizes = new Set<string | number>();
-  const FOLDERS = ["es", "lib"];
 
-  ensureFolder("dist");
+  ensureFolder(output_dir);
 
   const data = (metadata as BuildIcons).icons
     .slice(0, limit)
     .flatMap((icon) => {
       icon.sizes.forEach(unique_sizes.add.bind(unique_sizes));
+
       const folder = icon.namespace[0];
       const icons = [
         ...new Set([
@@ -37,7 +47,7 @@ export const genCarbonIconsReactTypes = (
 
       return icons.flatMap((moduleName) => {
         FOLDERS.forEach((FOLDER) => {
-          const folder_path = path.join("dist", FOLDER, folder ?? "");
+          const folder_path = path.join(output_dir, FOLDER, folder ?? "");
           const file_path = path.join(folder_path, moduleName + ".d.ts");
 
           if (folder && !fs.existsSync(folder_path)) {
@@ -59,55 +69,34 @@ export const genCarbonIconsReactTypes = (
       });
     });
 
-  const preamble = `/** ${data.length} icons total */
-
-export interface CarbonIconProps
-  extends Omit<
-    React.SVGProps<React.ReactSVGElement>,
-    "ref" | "tabIndex" | "aria-hidden"
-  > {
-  /** @default 16 */
-  size?: 16 | 20 | 24 | 32 | "16" | "20" | "24" | "32" | "glyph" | undefined;
-  /** @default "http://www.w3.org/2000/svg" */
-  xmlns?: string | undefined;
-  /** @default "xMidYMid meet" */
-  preserveAspectRatio?: string | undefined;
-  "aria-hidden"?: string | undefined;
-  "aria-label"?: string | undefined;
-  "aria-labelledby"?: string | undefined;
-  tabIndex?: string | undefined;
-  title?: string | undefined;
-  viewBox?: string | undefined;
-}
-
-export type CarbonIconType = React.ForwardRefExoticComponent<
-    CarbonIconProps & React.RefAttributes<SVGSVGElement>
->;\n\n`;
+  const preamble = fs.readFileSync(
+    path.resolve(import.meta.dir, "./preamble.d.ts"),
+    "utf8"
+  );
   const indexFile =
-    preamble +
+    `/** ${data.length} icons total */\n\n${preamble}\n\n` +
     data
       .map((item) => `export const ${item.moduleName}: CarbonIconType;\n`)
       .join("");
 
-  fs.writeFileSync("dist/index.d.ts", indexFile);
+  fs.writeFileSync(path.join(output_dir, BASE_INDEX_FILE), indexFile);
 
   FOLDERS.forEach((FOLDER) => {
     fs.writeFileSync(
-      path.join("dist", FOLDER, "index.d.ts"),
+      path.join(output_dir, FOLDER, BASE_INDEX_FILE),
       data.map((item) => `export { ${item.moduleName} } from "../";\n`).join("")
     );
   });
 
   fs.writeFileSync(
-    "dist/OTHER_FILES.txt",
-    `es/index.d.ts\nlib/index.d.ts\n` +
+    path.join(output_dir, "OTHER_FILES.txt"),
+    `es/${BASE_INDEX_FILE}\nlib/${BASE_INDEX_FILE}\n` +
       FOLDERS.flatMap((FOLDER) =>
         data.map((item) => `${FOLDER}/${item.filePath}\n`).join("")
       ).join("")
   );
 
   return {
-    sizes: [...unique_sizes].sort(),
     total: data.length,
   };
 };

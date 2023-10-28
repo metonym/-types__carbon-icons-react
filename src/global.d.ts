@@ -1,7 +1,7 @@
 declare module "@carbon/icons" {
   export type ModuleName = string;
 
-  export interface IconOutput {
+  export type IconOutput = Readonly<{
     moduleName: ModuleName;
     filepath: string;
     descriptor: {
@@ -13,15 +13,15 @@ declare module "@carbon/icons" {
         width: number;
         height: number;
       };
-      content: { elem: string; attrs: object }[];
+      content: Array<{ elem: string; attrs: object }>;
       name: string;
       size: number;
     };
     size: number;
-  }
+  }>;
 
-  export interface BuildIcons {
-    icons: ReadonlyArray<{
+  export type BuildIcons = Readonly<{
+    icons: Array<{
       name: string;
       friendlyName: string;
       namespace: [] | [folder: string];
@@ -40,5 +40,5 @@ declare module "@carbon/icons" {
       output: IconOutput[];
       category: string;
     }>;
-  }
+  }>;
 }
