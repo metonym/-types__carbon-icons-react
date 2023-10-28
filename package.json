@@ -5,9 +5,9 @@
     "postgenerate-types": "dprint fmt dist/*.d.ts"
   },
   "devDependencies": {
-    "@carbon/icons": "11.28.0",
-    "@types/react": "^18.2.31",
+    "@carbon/icons": "11.29.x",
+    "@types/react": "^18.2.33",
     "bun-types": "latest",
-    "dprint": "^0.41.0"
+    "dprint": "^0.42.3"
   }
 }
