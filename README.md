@@ -1,8 +1,9 @@
 # @types\_\_carbon-icons-react
 
-> Generate source code for [@types/carbon\_\_icons-react](https://www.npmjs.com/package/@types/carbon__icons-react)
+> **Warning**
+> As of v11.29.x, the `@carbon/icons-react` package ships its own TypeScript definitions. As such, `@types/carbon__icons-react` is no longer needed and [has been removed](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/67176). This repo is archived and will remain public for historical purposes.
 
-This repo generates TypeScript definitions for the [@carbon/icons-react](https://github.com/carbon-design-system/carbon/tree/main/packages/icons-react) icon library using the [@carbon/icons](https://www.npmjs.com/package/@carbon/icons) package.
+This repo generates TypeScript definitions ([@types/carbon\_\_icons-react](https://www.npmjs.com/package/@types/carbon__icons-react)) for the [@carbon/icons-react](https://github.com/carbon-design-system/carbon/tree/main/packages/icons-react) icon library using the [@carbon/icons](https://www.npmjs.com/package/@carbon/icons) package.
 
 ## Prerequisites
 
